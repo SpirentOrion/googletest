@@ -654,7 +654,7 @@ class TypeParameterizedTest {
   static bool Register(const char* prefix, const CodeLocation& code_location,
                        const char* case_name, const char* test_names, int index,
                        const std::vector<std::string>& type_names =
-                           GenerateNames<DefaultNameGenerator, Types>()) {
+                           (GenerateNames<DefaultNameGenerator, Types>())) {
     typedef typename Types::Head Type;
     typedef Fixture<Type> FixtureClass;
     typedef typename GTEST_BIND_(TestSel, Type) TestClass;
@@ -706,7 +706,7 @@ class TypeParameterizedTestCase {
                        const TypedTestCasePState* state, const char* case_name,
                        const char* test_names,
                        const std::vector<std::string>& type_names =
-                           GenerateNames<DefaultNameGenerator, Types>()) {
+                           (GenerateNames<DefaultNameGenerator, Types>())) {
     std::string test_name = StripTrailingSpaces(
         GetPrefixUntilComma(test_names));
     if (!state->TestExists(test_name)) {
